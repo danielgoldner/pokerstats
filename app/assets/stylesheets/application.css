@@ -1,0 +1,123 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+div.signup
+{
+  float: right;
+}
+
+label
+{
+  text-size: 1.5em;
+}
+
+input:not(#user_remember_me):not(.btn)
+{
+  width:280px;
+    height:27px;
+    background:#fafefa;
+    border:1px solid #646262;
+    padding:10px;
+    margin-top:3px;
+    font-size:1.5em;
+    color:#646262;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    margin: 0 auto;
+}
+
+input.btn
+{
+  border-radius:5px;
+  background: #0d430f;
+  color: #fafefa;
+  height: 27px;
+  width: 140px;
+}
+
+input.btn:hover
+{
+  cursor: pointer;
+}
+
+
+div#sign
+{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+
+}
+
+div#signup > a, div#forget
+{
+  position:absolute;
+  top:25%;
+  left: 50%;
+  margin-top: 190px;
+  margin-left: -100px;
+}
+
+div#forget
+{
+  margin-top: 150px;
+}
+
+section#header
+{
+  position: absolute;
+  top: 0;
+  bottom: 90%;
+  left: 0;
+  right: 0;
+}
+
+section#main
+{
+  position: absolute;
+  top: 10%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+div.centered
+{
+  margin: 0 auto;
+  width: 550px;
+  border: 1px solid #646262;
+  padding: 5px;
+}
+
+div.links
+{
+  text-align: center;
+}
+
+h1
+{
+  color: #0d430f;
+  font-size: 32px;
+}
+
+h2
+{
+  text-align:center;
+  font-size: 26px;
+}

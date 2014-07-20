@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  played: 2014-07-18
+  buyin: 1
+  winnings: 1
+  profit: 1
+  gametype: MyString
+
+two:
+  played: 2014-07-18
+  buyin: 1
+  winnings: 1
+  profit: 1
+  gametype: MyString

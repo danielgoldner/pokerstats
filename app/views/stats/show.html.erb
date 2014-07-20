@@ -1,0 +1,95 @@
+<% unless @games.count == 0 %>
+<div class='centered'>
+<h2>Summary Statistics</h2>
+
+<h3>You have played 
+<%= pluralize(@games.count, "game") %>
+so far.</h3>
+
+<h3>So far you have
+<% if @profit > 1 %>
+  won $<%= @profit %>. Well done!
+<% elsif @profit < 0 %>
+  lost $<%= @profit.abs %>, you degenerate.
+<% else %>
+  broke even. Meh.
+<% end %>
+
+</h3>
+
+<h3>You have
+<% if @profit > 1 %>
+  won an average of $<%= (@profit.to_f / @games.count).round(2) %> per game. Nice.
+<% elsif @profit < 0 %>
+  lost an average of $<%= (@profit.to_f / @games.count).round(2).abs %> per game. :-/
+<% else %>
+  an average winnings of zero. Talk about a waste of time...
+<% end %>
+
+<h3>Last game played
+  <% days = [] %>
+  <% @games.each do |game| %>
+    <% day = (Time.now - game.played.to_datetime) / 86000 %>
+    <% days << day.floor %>
+  <% end %>
+    <%= pluralize(days.min, "day") %> ago.</h3>
+
+    <% if @games.count > 0 %>
+<table>
+  <thead>
+    <tr>
+      <th><%= sortable "played" %></th>
+      <th><%= sortable "buyin" %></th>
+      <th><%= sortable "winnings", 'Won' %></th>
+      <th><%= sortable "profit" %></th>
+      <th><%= sortable "gametype", 'Type' %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @games.each do |game| %>
+        <tr>
+          <td><%= filterable game.played, 'played' %></td>
+          <td><%= filterable game.buyin, 'buyin' %></td>
+          <td><%= filterable game.winnings, 'winnings' %></td>
+          <td><%= filterable game.profit, 'profit' %></td>
+          <td><%= filterable game.gametype, 'gametype' %></td>
+          <td> | </td>
+          <td><%= link_to 'Edit', edit_game_path(game) %></td>
+          <td><%= link_to 'Delete', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        </tr>
+      <% end %>
+      <p class='centered'><%= filterable "Clear Filter" %></p>
+    <% end %>
+  </tbody>
+ </table>
+
+<% else %>
+<h3>No Games Entered!</h3>
+<% end %>
+</div>
+</br>
+<div class='links'>
+<%= link_to 'Back', games_path %> |
+<%= link_to 'New Game', new_game_path %> |
+<%= link_to 'Logout', :destroy_user_session, method: :delete %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
